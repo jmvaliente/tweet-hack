@@ -12,7 +12,7 @@ module.exports.create = (req, res, next) => {
     name: req.body.name,
     email: req.body.email,
     password: req.body.password,
-    avatar: req.body.avatar,
+    avatar: req.file.url, //Insert image Cloudinary
     bootcamp: req.body.bootcamp
   })
 
