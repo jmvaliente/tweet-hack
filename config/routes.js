@@ -11,7 +11,7 @@ router.get('/', authMiddleware.isAuthenticated, tweetsController.index)
 router.get('/tweets/:id', authMiddleware.isAuthenticated, tweetsController.show)
 router.post('/tweets/:id/comments', authMiddleware.isAuthenticated, tweetsController.addComment)
 router.post('/tweets/:id/like', authMiddleware.isAuthenticated, tweetsController.like)
-router.post('/tweets', authMiddleware.isAuthenticated, tweetsController.create)
+router.post('/tweets', authMiddleware.isAuthenticated, uploadCloud.single('image'), tweetsController.create)
 
 router.get('/users/new', authMiddleware.isNotAuthenticated, usersController.new)
 router.post('/users', authMiddleware.isNotAuthenticated, uploadCloud.single('avatar'), usersController.create) //upload image library cloudinary
